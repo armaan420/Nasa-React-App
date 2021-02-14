@@ -4,7 +4,7 @@ import axios from "axios";
 import Header from "./components/Header";
 import Data from "./components/Data";
 
-const API_KEY = "SsGcHE86HKtzR0YlSGb1P3bPaARMs3jOhalFaxsh";
+const { REACT_APP_API_KEY } = process.env;
 
 function App() {
   const [items, setItems] = useState([]);
@@ -12,12 +12,9 @@ function App() {
   useEffect(async () => {
     const fetchItems = async () => {
       const result = await axios(
-        `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`
-        // `https://api.nasa.gov/insight_weather/?api_key=${API_KEY}&feedtype=json&ver=1.0`
+        `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}`
       );
-
       setItems(result.data);
-      console.log(result.data);
     };
 
     fetchItems();
