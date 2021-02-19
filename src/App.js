@@ -4,15 +4,13 @@ import axios from "axios";
 import Header from "./components/Header";
 import Data from "./components/Data";
 
-const { REACT_APP_API_KEY } = process.env;
-
 function App() {
   const [items, setItems] = useState([]);
 
   useEffect(async () => {
     const fetchItems = async () => {
       const result = await axios(
-        `https://api.nasa.gov/planetary/apod?api_key=${REACT_APP_API_KEY}`
+        `https://api.nasa.gov/planetary/apod?api_key=qJVTIoMQkiSgYmTlM5oglVoBjQckazNfe5ZRepe9`
       );
       setItems(result.data);
     };
